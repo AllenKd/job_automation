@@ -17,7 +17,7 @@ class VideoRearranger(object):
         self.ignore_folder = []
         self.logger.info('video rearranger initialized, video path: {}'.format(self.video_folder_path))
 
-    def start_rearrange(self):
+    def start(self):
         self.logger.info('start rearrange')
         for folder_name in os.listdir(self.video_folder_path):
             if not os.path.isdir('{}/{}'.format(self.video_folder_path, folder_name)):

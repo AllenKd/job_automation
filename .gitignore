@@ -6,3 +6,7 @@
 \.ipynb_checkpoints/
 
 \venv
+
+config/__pycache__/
+
+*.pyc

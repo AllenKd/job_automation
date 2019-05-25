@@ -1,0 +1,9 @@
+logging:
+  level: "DEBUG"
+app_switch:
+  video_rearrange: true
+
+video_rearranger:
+  target_path: "/home/allen/DataDisk/Video"
+  expected_extension:
+    - ".mp4"

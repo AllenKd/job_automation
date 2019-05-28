@@ -1,10 +1,10 @@
 logging:
   level: "INFO"
 app_switch:
-  video_rearrange: true
+  video_rearrange: false
 
 video_rearranger:
   target_path: "/home/allen/DataDisk/Video"
-  schedule_period: 86400 # 24hrs
+  schedule_period: 10 # 24hrs
   expected_extension:
     - ".mp4"

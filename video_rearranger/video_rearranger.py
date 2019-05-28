@@ -12,8 +12,8 @@ class VideoRearranger(object):
         self.logger = get_logger(self.__class__.__name__)
         with open('config/configuration.yaml') as config:
             self.config = yaml.load(config, Loader=yaml.FullLoader)
-
-        self.video_folder_path = self.config['video_rearranger']['target_path']
+        # get video path from environment variable as the first priority then from config file as the second priority
+        self.video_folder_path = os.environ['VIDEO_PATH'] if 'VIDEO_PATH' in os.environ else self.config['video_rearranger']['target_path']
         self.ignore_folder = []
         self.logger.info('video rearranger initialized, video path: {}'.format(self.video_folder_path))
 

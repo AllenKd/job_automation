@@ -1,0 +1,16 @@
+
+.idea/
+
+.ipynb_checkpoints/
+
+log/
+
+venv/
+
+pipeline/
+
+config/__pycache__/
+
+.gitignore
+
+.gitmodule

@@ -16,7 +16,7 @@ def cli():
     pass
 
 
-@click.command()
+@click.command('video_rearrange', help='Move out the largest file from each sub-folder on given folder.')
 @click.option('--path',
               default=os.environ['VIDEO_PATH'] if 'VIDEO_PATH' in os.environ else get_config()['video_rearranger'][
                   'target_path'],

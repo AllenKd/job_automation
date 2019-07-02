@@ -1,3 +1,4 @@
-hurry.filesize==0.9
+Click==7.0
 hurry==1.0
-PyYAML==5.1
+hurry.filesize==0.9
+PyYAML==5.1.1

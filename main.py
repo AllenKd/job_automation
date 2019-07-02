@@ -1,37 +1,31 @@
-import threading
-import time
+import os
 
+import click
 import yaml
 
-from config.logger import get_logger
 from video_rearranger.video_rearranger import VideoRearranger
 
 
-class Scheduler(object):
-    def __init__(self):
-        self.logger = get_logger(self.__class__.__name__)
-        with open('config/configuration.yaml') as config:
-            self.config = yaml.load(config, Loader=yaml.FullLoader)
+def get_config():
+    with open('config/configuration.yaml') as config:
+        return yaml.load(config, Loader=yaml.FullLoader)
 
-    def start(self):
-        threading.Thread(target=self.video_rearrange_worker).start()
 
-    def video_rearrange_worker(self):
-        self.logger.info('start video rearrange worker')
-        while True:
-            if self.config['app_switch']['video_rearrange']:
-                VideoRearranger().start()
-            else:
-                self.logger.info('video rearrange disabled')
-            time.sleep(self.config['video_rearranger']['schedule_period'])
-            self.reload_config()
+@click.group()
+def cli():
+    pass
 
-    def reload_config(self):
-        self.logger.info('reload config')
-        with open('config/configuration.yaml') as config:
-            self.config = yaml.load(config, Loader=yaml.FullLoader)
 
+@click.command('video_rearrange', help='Move out the largest file from each sub-folder on given folder.')
+@click.option('--path',
+              default=os.environ['VIDEO_PATH'] if 'VIDEO_PATH' in os.environ else get_config()['video_rearranger'][
+                  'target_path'],
+              help='Specify video folder path', show_default=True)
+def video_rearrange(path):
+    VideoRearranger(path).start()
+
+
+cli.add_command(video_rearrange)
 
 if __name__ == '__main__':
-    scheduler = Scheduler()
-    scheduler.start()
+    cli()

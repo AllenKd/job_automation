@@ -25,7 +25,6 @@ def video_rearrange(path):
     VideoRearranger(path).start()
 
 
-cli.add_command(video_rearrange)
-
 if __name__ == '__main__':
+    cli.add_command(video_rearrange)
     cli()

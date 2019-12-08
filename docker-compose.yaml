@@ -1,0 +1,15 @@
+version: '3'
+services:
+  sports_data_crawler:
+    build:
+      context: ./
+      dockerfile: ./build/Dockerfile
+    image: allensyk/job_automation:0.1
+    environment:
+      TARGET_PATH: /target_path
+    volumes:
+      - type: volume
+        source: /home/allen/DataDisk/Video
+        target: /target_path
+        volume:
+          nocopy: true

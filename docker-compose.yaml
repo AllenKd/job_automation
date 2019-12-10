@@ -1,6 +1,6 @@
-version: '3'
+version: '3.3'
 services:
-  sports_data_crawler:
+  job_automation:
     build:
       context: ./
       dockerfile: ./build/Dockerfile
@@ -8,8 +8,8 @@ services:
     environment:
       TARGET_PATH: /target_path
     volumes:
-      - type: volume
+      - type: bind
         source: /home/allen/DataDisk/Video
-        target: /target_path
+        target: /app/target_path
         volume:
           nocopy: true

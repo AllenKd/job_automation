@@ -1,14 +1,9 @@
 import os
 
 import click
-import yaml
 
+from util.util import Util
 from video_rearranger.video_rearranger import VideoRearranger
-
-
-def get_config():
-    with open('config/configuration.yaml') as config:
-        return yaml.load(config, Loader=yaml.FullLoader)
 
 
 @click.group()
@@ -18,10 +13,11 @@ def cli():
 
 @click.command('video_rearrange', help='Move out the largest file from each sub-folder on given folder.')
 @click.option('--path', '-p',
-              default=os.environ['VIDEO_PATH'] if 'VIDEO_PATH' in os.environ else get_config()['video_rearranger'][
-                  'target_path'],
+              default=os.environ['VIDEO_PATH'] if 'VIDEO_PATH' in os.environ else
+              Util().get_config()['video_rearranger']['target_path'],
               help='Specify video folder path', show_default=True)
 def video_rearrange(path):
+    Util().load_environment_variable()
     VideoRearranger(path).start()
 
 

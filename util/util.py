@@ -8,7 +8,7 @@ from config.logger import get_logger
 class Util(object):
     def __init__(self):
         self.logger = get_logger(self.__class__.__name__)
-        with open('config/configuration.yml') as config:
+        with open('config/configuration.yaml') as config:
             self.config = yaml.load(config, Loader=yaml.FullLoader)
 
     def load_environment_variable(self):

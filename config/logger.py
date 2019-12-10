@@ -7,7 +7,7 @@ import yaml
 init = False
 
 
-def get_logger(player_id):
+def get_logger(name):
     global init
     if not init:
         if not os.path.exists('log'):
@@ -27,6 +27,6 @@ def get_logger(player_id):
         logging.getLogger().addHandler(console)
         init = True
 
-    logger = logging.getLogger(player_id)
+    logger = logging.getLogger(name)
 
     return logger

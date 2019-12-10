@@ -17,6 +17,7 @@ def cli():
               Util().get_config()['video_rearranger']['target_path'],
               help='Specify video folder path', show_default=True)
 def video_rearrange(path):
+    Util().load_environment_variable()
     VideoRearranger(path).start()
 
 

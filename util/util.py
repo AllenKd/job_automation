@@ -13,7 +13,7 @@ class Util(object):
 
     def load_environment_variable(self):
         self.logger.info('start load environment variables and overwrite config file')
-        with open('config/configuration.yml') as config:
+        with open('config/configuration.yaml') as config:
             config = yaml.load(config, Loader=yaml.FullLoader)
 
             if os.environ.get('TARGET_PATH'):

@@ -33,7 +33,7 @@ After rearrange
 └── video_b
 ```
 
-### CLI
+### Usage
 
 ```bash
 $ python3 main.py video_rearrange --help
@@ -47,3 +47,12 @@ Options:
   --help           Show this message and exit.
 
 ```
+
+## Docker Image
+
+```
+$ docker pull allensyk/job_automation
+```
+| Environment Variable | Description |
+| :--- | :--- |
+| TARGET_PATH | Target path in the container which bind with host target folder. |

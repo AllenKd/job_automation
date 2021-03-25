@@ -1,4 +1,4 @@
 Click==7.0
 hurry==1.0
 hurry.filesize==0.9
-PyYAML==5.1.1
+PyYAML==5.4
